@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Officer Dashboard</title>
+</head>
+<body>
+    <h2>Welcome Officer</h2>
+    <h3>Pending Requests</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Visitor Name</th><th>Type</th><th>Location</th><th>Purpose</th><th>Status</th><th>Action</th>
+        </tr>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.request_id }}</td>
+            <td>{{ req.name }}</td>
+            <td>{{ req.type }}</td>
+            <td>{{ req.location }}</td>
+            <td>{{ req.purpose }}</td>
+            <td>{{ req.status }}</td>
+            <td>
+                <a href="/update_request/{{ req.request_id }}/approve">Approve</a> |
+                <a href="/update_request/{{ req.request_id }}/reject">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

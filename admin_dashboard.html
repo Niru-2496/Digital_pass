@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Welcome Admin</h2>
+
+    <!-- Add Officer -->
+    <h3>Add Officer</h3>
+    <form method="POST">
+        <input type="text" name="officer_name" placeholder="Name" required><br>
+        <input type="email" name="officer_email" placeholder="Email" required><br>
+        <input type="password" name="officer_password" placeholder="Password" required><br>
+        <button type="submit">Add Officer</button>
+    </form>
+
+    <h3>Current Officers</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th>
+        </tr>
+        {% for o in officers %}
+        <tr>
+            <td>{{ o.officer_id }}</td>
+            <td>{{ o.name }}</td>
+            <td>{{ o.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Add Pass Type -->
+    <h3>Add Pass Type</h3>
+    <form method="POST">
+        <input type="text" name="pass_type_name" placeholder="Type Name" required><br>
+        <input type="text" name="pass_type_description" placeholder="Description" required><br>
+        <button type="submit">Add Pass Type</button>
+    </form>
+
+    <h3>Existing Pass Types</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Name</th><th>Description</th>
+        </tr>
+        {% for pt in pass_types %}
+        <tr>
+            <td>{{ pt.pass_type_id }}</td>
+            <td>{{ pt.type_name }}</td>
+            <td>{{ pt.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
